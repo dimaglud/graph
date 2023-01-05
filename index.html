@@ -1,0 +1,83 @@
+<script lang="javascript">
+
+    window.addEventListener('resize', function(event) {
+        drawGraph();
+    }, true);
+
+    drawGraph();
+
+    function drawGraph() {
+        const container = document.getElementById('graph');
+        const dot = document.getElementById('graph_dot');
+
+        const width = container.offsetWidth;
+        const height = container.offsetHeight;
+        
+        const weightInput = document.getElementById('inpWeight');
+        const weight = weightInput.value;
+        console.log(weight);
+        
+        //TODO: get other needed parameters from inputs
+        //TODO: add validation
+
+        var x = getWeightIndex(weight);
+        var y = getHealthIndex();
+        
+        //TODO: ajust coordinates to container width
+
+        dot.style.left = x;
+        dot.style.bottom = y;
+
+        console.log("width:" + container.offsetWidth);
+        console.log(dot.style);
+
+    }
+
+    function getWeightIndex(weight, height) {
+        //TODO
+        return weight;
+    }
+
+    function getHealthIndex() {
+        //TODO
+        return 100;
+    }
+
+</script>
+
+<style>
+
+.form-container {
+    
+}
+
+.graph-container {
+    width: 30%;
+    height: 30%;
+}
+
+.graph-dot {
+    width: 10px;
+    height: 10px;
+    position: relative;
+    bottom: 30px;
+    left: 60px;
+    z-index: 2;
+}
+
+.graph-grid {
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<div class="form-container">
+    <input type="number" id="inpWeight" />
+    
+    <input type="button" onclick="drawGraph()" value="Submit" />
+</div>
+
+<div class="graph-container" id="graph">
+    <img class="graph-grid" src="./img/graph.svg" />
+    <img class="graph-dot" id="graph_dot" src="./img/dot.svg" />
+</div>
