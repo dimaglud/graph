@@ -4,8 +4,6 @@
         drawGraph();
     }, true);
 
-    drawGraph();
-
     function drawGraph() {
         const container = document.getElementById('graph');
         const dot = document.getElementById('graph_dot');
@@ -15,7 +13,6 @@
         
         const weightInput = document.getElementById('inpWeight');
         const weight = weightInput.value;
-        console.log(weight);
         
         //TODO: get other needed parameters from inputs
         //TODO: add validation
@@ -29,8 +26,6 @@
         dot.style.bottom = y;
 
         console.log("width:" + container.offsetWidth);
-        console.log(dot.style);
-
     }
 
     function getWeightIndex(weight, height) {
@@ -47,8 +42,10 @@
 
 <style>
 
+.main-container {
+}
+
 .form-container {
-    
 }
 
 .graph-container {
@@ -71,13 +68,15 @@
 }
 </style>
 
-<div class="form-container">
-    <input type="number" id="inpWeight" />
+<div class="main-container">
+    <div class="form-container">
+        <input type="number" id="inpWeight" />
+        
+        <input type="button" onclick="drawGraph()" value="Submit" />
+    </div>
     
-    <input type="button" onclick="drawGraph()" value="Submit" />
-</div>
-
-<div class="graph-container" id="graph">
-    <img class="graph-grid" src="./img/graph.svg" />
-    <img class="graph-dot" id="graph_dot" src="./img/dot.svg" />
+    <div class="graph-container" id="graph">
+        <img class="graph-grid" src="./img/graph.svg" />
+        <img class="graph-dot" id="graph_dot" src="./img/dot.svg" />
+    </div>
 </div>
