@@ -49,15 +49,30 @@
         console.log("индекс Веса: " + x + " индексЗдоровья: " + y);
     }
 
-    function getWeightIndex(weight, height) {
+    function getWeightIndex(weight, heightM) {
         //TODO
-        return weight*10000/(height*height);
+        let weight1;
+        weight1=weight*10000;
+        let heightSQ;
+        heightSQ = heightM **2;
+        return weight1/heightSQ;
     }
 
-    function getHealthIndex(pulse,pressureU,pressureL,age,weight,heightM) {
+    function getHealthIndex(pulse, pressureU, pressureL, age, weight, heightM) {
         //TODO
-        return (700-3*pulse-2,5*((pressureU-pressureL)/3+pressureL)-2,7*age+0,28*weight)/(350-2.6*age+0.21*heightM);
 
+        let pressureA1 = (pressureU - pressureL);
+        let pressureA = (pressureA1/3) + pressureL;
+
+        let index1a = (700 - (3*pulse));
+        let index1b = (index1a - (2,5*pressureA));
+        let index1c = index1b - (2,7*age);
+        let index1 = index1c + (0,28*weight);
+
+        let index2a = 350 - (2.6*age);
+        let index2 = index2a + (0.21*heightM);
+
+        return index1/index2; 
     }
 
 </script>
