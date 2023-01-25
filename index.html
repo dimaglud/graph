@@ -13,23 +13,23 @@
         
 
         const weightInput = document.getElementById('inpWeight');
-        const weight = weightInput.value;
+        const weight = +weightInput.value;
 
         // added height (heightM)
         const heightInput = document.getElementById('inpHeight');
-        const heightM = heightInput.value;
+        const heightM = +heightInput.value;
 
         // added Pulse
         const pulseInput = document.getElementById('inpPulse');
-        const pulse = pulseInput.value;
+        const pulse = +pulseInput.value;
 
         // added Pressure Upper (PressureU)
         const pressureInputU = document.getElementById('inpPressureU');
-        const pressureU = pressureInputU.value;
+        const pressureU = +pressureInputU.value;
 
         // added Pressure Lower (PressureL)
         const pressureInputL = document.getElementById('inpPressureL');
-        const pressureL = pressureInputL.value;
+        const pressureL = +pressureInputL.value;
 
         // added Age
         const ageInput = document.getElementById('inpAge');
@@ -38,19 +38,32 @@
         //TODO: get other needed parameters from inputs
         //TODO: add validation 
 
-        var x = getWeightIndex(weight,heightM);
-        var y = getHealthIndex(pulse,pressureU,pressureL,age,weight,heightM);
+        var weightIndex = getWeightIndex(weight,heightM);
+        var healthIndex = getHealthIndex(pulse,pressureU,pressureL,age,weight,heightM);
         
+        //var weightIndex = 18.5;
+        //var healthIndex = 0.825;
+        
+        console.log("индекс Веса: " + weightIndex + " индекс Здоровья: " + healthIndex);
+
         //TODO: ajust coordinates to container width
+
+        var x = 10 * weightIndex - 86;
+        var y = 200 * healthIndex - 41;
 
         dot.style.left = x;
         dot.style.bottom = y;
 
-        console.log("индекс Веса: " + x + " индексЗдоровья: " + y);
+    }
+
+    //TODO: use this function 
+    function getFieldValue(name) {
+        const heightInput = document.getElementById(name);
+        const heightM = +heightInput.value;
     }
 
     function getWeightIndex(weight, heightM) {
-        //TODO
+        //TODO: make formula more readable
         let weight1;
         weight1=weight*10000;
         let heightSQ;
@@ -59,17 +72,23 @@
     }
 
     function getHealthIndex(pulse, pressureU, pressureL, age, weight, heightM) {
-        //TODO
+        let pressureAvg = (pressureU - pressureL) / 3 + pressureL;
+        let indexU = 700 - 3 * pulse - 2.5 * pressureAvg - 2.7 * age + 0.28 * weight;
+        let indexL = 350 - 2.6 * age + 0.21 * heightM;
 
-        let pressureA1 = (pressureU - pressureL);
-        let pressureA = (pressureA1/3) + pressureL;
+        return indexU/indexL; 
+    }
 
-        let index1a = (700 - (3*pulse));
-        let index1b = (index1a - (2,5*pressureA));
-        let index1c = index1b - (2,7*age);
-        let index1 = index1c + (0,28*weight);
+//TODO: delete me
+    function getHealthIndex2(pulse, pressureU, pressureL, age, weight, heightM) {
+        let pressureAvg = (pressureU - pressureL)/3 + pressureL;
 
-        let index2a = 350 - (2.6*age);
+        let indexU = (700 - (3 * pulse));
+        indexU = indexU - (2.5 * pressureAvg);
+        indexU -= 2.7 * age;
+        indexU += 0.28 * weight;
+        
+        let index2a = 350 - (2.6 * age);
         let index2 = index2a + (0.21*heightM);
 
         return index1/index2; 
@@ -90,16 +109,18 @@
 }
 
 .graph-container {
+/*
     width: 30%;
     height: 30%;
+*/
+    width: 270;
+    height: 175;
 }
 
 .graph-dot {
     width: 10px;
     height: 10px;
     position: relative;
-    bottom: 30px;
-    left: 60px;
     z-index: 2;
 }
 
@@ -111,12 +132,12 @@
 
 <div class="main-container">
     <div class="form-container">
-        Вага, кг: <input type="number" id="inpWeight" />
-        Зріст, см: <input type="number" id="inpHeight" /> <br/><br/>
+        Вага, кг: <input type="number" id="inpWeight" value="60"/>
+        Зріст, см: <input type="number" id="inpHeight"  value="168"/> <br/><br/>
         ------------------------------------------- <br/><br/>
-        Пульс, уд/хв: <input type="number" id="inpPulse" /><br/><br/>
-        Тиск, верхній/нижній: <input type="number" id="inpPressureU" />/<input type="number" id="inpPressureL" /> <br/><br/>
-        Вік, років: <input type="number" id="inpAge" />
+        Пульс, уд/хв: <input type="number" id="inpPulse"  value="67"/><br/><br/>
+        Тиск, верхній/нижній: <input type="number" id="inpPressureU"  value="120"/>/<input type="number" id="inpPressureL" value="80"/> <br/><br/>
+        Вік, років: <input type="number" id="inpAge" value="39"/>
         
         <input class="btn-main" type="button" onclick="drawGraph()" value="Submit" />
     </div>
