@@ -48,8 +48,18 @@
 
         //TODO: ajust coordinates to container width
 
+        //var x = 10 * weightIndex - 86;
+        //var y = 200 * healthIndex - 41;
+
+
+        var kX = width/270;
+        var kY = height/175;
+
         var x = 10 * weightIndex - 86;
+        var x = kX*x;
+
         var y = 200 * healthIndex - 41;
+        var y = kY*y;
 
         dot.style.left = x;
         dot.style.bottom = y;
@@ -109,12 +119,14 @@
 }
 
 .graph-container {
+
+    width: 40%;
+
+ 
 /*
-    width: 30%;
-    height: 30%;
-*/
     width: 270;
     height: 175;
+*/  
 }
 
 .graph-dot {
@@ -123,6 +135,7 @@
     position: relative;
     z-index: 2;
 }
+
 
 .graph-grid {
     width: 100%;
