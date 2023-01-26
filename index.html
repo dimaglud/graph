@@ -62,12 +62,12 @@
         //TODO
 
         let pressureA1 = (pressureU - pressureL);
-        let pressureA = (pressureA1/3) + pressureL;
+        let pressureA = ((pressureA1 / 3) + pressureL);
 
         let index1a = (700 - (3*pulse));
-        let index1b = (index1a - (2,5*pressureA));
-        let index1c = index1b - (2,7*age);
-        let index1 = index1c + (0,28*weight);
+        let index1b = (index1a - (2.5*pressureA));
+        let index1c = index1b - (2.7*age);
+        let index1 = index1c + (0.28*weight);
 
         let index2a = 350 - (2.6*age);
         let index2 = index2a + (0.21*heightM);
