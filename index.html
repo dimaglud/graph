@@ -109,10 +109,23 @@
 <style>
 
 .main-container {
+    display: flex;
 }
 
 .form-container {
 }
+
+.form-row
+{
+
+}
+
+.form-row label {
+    font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 13.5739px;
+} 
 
 .btn-main {
     border-block-width: 2px;
@@ -144,8 +157,17 @@
 </style>
 
 <div class="main-container">
+   
+    <div class="graph-container" id="graph">
+        <img class="graph-grid" src="./img/graph.svg" />
+        <img class="graph-dot" id="graph_dot" src="./img/dot.svg" />
+    </div>
+
     <div class="form-container">
-        Вага, кг: <input type="number" id="inpWeight" value="60"/>
+        <div class="form-row">
+            <label>Вага, кг</label>
+            <input type="number" id="inpWeight" value="60"/>
+        </div>
         Зріст, см: <input type="number" id="inpHeight"  value="168"/> <br/><br/>
         ------------------------------------------- <br/><br/>
         Пульс, уд/хв: <input type="number" id="inpPulse"  value="67"/><br/><br/>
@@ -153,10 +175,5 @@
         Вік, років: <input type="number" id="inpAge" value="39"/>
         
         <input class="btn-main" type="button" onclick="drawGraph()" value="Submit" />
-    </div>
-    
-    <div class="graph-container" id="graph">
-        <img class="graph-grid" src="./img/graph.svg" />
-        <img class="graph-dot" id="graph_dot" src="./img/dot.svg" />
     </div>
 </div>
