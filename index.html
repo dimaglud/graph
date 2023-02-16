@@ -38,32 +38,25 @@
         //TODO: get other needed parameters from inputs
         //TODO: add validation 
 
-        var weightIndex = getWeightIndex(weight,heightM);
-        var healthIndex = getHealthIndex(pulse,pressureU,pressureL,age,weight,heightM);
+        //var weightIndex = getWeightIndex(weight,heightM);
+        //var healthIndex = getHealthIndex(pulse,pressureU,pressureL,age,weight,heightM);
         
-        //var weightIndex = 18.5;
-        //var healthIndex = 0.825;
+        var weightIndex = 18.5;
+        var healthIndex = 0.525;
         
         console.log("индекс Веса: " + weightIndex + " индекс Здоровья: " + healthIndex);
 
-        //TODO: ajust coordinates to container width
+        var kX = width/296;
+        var kY = height/219;
 
-        //var x = 10 * weightIndex - 86;
-        //var y = 200 * healthIndex - 41;
-
-
-        var kX = width/270;
-        var kY = height/175;
-
-        var x = 10 * weightIndex - 86;
+        var x = 5 * weightIndex - 35;
         x = kX*x;
 
-        var y = 200 * healthIndex - 41;
+        var y = 200 * healthIndex - 22;
         y = kY*y;
 
         dot.style.left = x;
         dot.style.bottom = y;
-
     }
 
     //TODO: use this function 
@@ -173,7 +166,7 @@ div.field label {
 <div class="main-container">
    
     <div class="graph-container" id="graph">
-        <img class="graph-grid" src="./img/graph.svg" />
+        <img class="graph-grid" src="./img/graph_man.svg" />
         <img class="graph-dot" id="graph_dot" src="./img/dot.svg" />
     </div>
 
@@ -181,7 +174,7 @@ div.field label {
 
         <div class="field">
             <label>Пол:</label>
-            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" Мужчина>
+            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
             <label class="btn btn-secondary" for="option1">Мужчина</label>
 
             <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
