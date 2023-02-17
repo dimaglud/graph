@@ -101,11 +101,27 @@
 
 <style>
 
+input[type="number"] {
+    width: 130px;
+    height: 30px;
+    font-size: 15px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+::placeholder {
+  color: gray;
+  opacity: 0.5; /* Firefox */
+}
+
 .main-container {
     display: flex;
 }
 
 .form-container {
+    margin: 5% 0;
+    padding-left: 10px;
 }
 
 .form-row
@@ -116,13 +132,14 @@
 div.field {
   padding-bottom: 10px;
 }
+
 div.field label {
     font-family: 'Open Sans';
     font-style: normal;
     display: block;
     float: left;
     width: 80px;
-    height: 15px;
+    font-size: 15px;
 }
 
 
@@ -135,7 +152,9 @@ div.field label {
 } 
 
 .btn-main {
-    border-block-width: 2px;
+    border: none;
+    padding: 10px 30px;
+    margin: 20px 0 20px 0;
 }
 
 .graph-container {
@@ -164,6 +183,8 @@ div.field label {
 </style>
 
 <div class="main-container">
+
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'> 
    
     <div class="graph-container" id="graph">
         <img class="graph-grid" src="./img/graph_man.svg" />
@@ -182,37 +203,29 @@ div.field label {
 
         </div>
 
-        <div class="form-row">
-        <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" Чоловік>
-        <label class="btn btn-secondary" for="option1">Чоловік</label>
-
-        <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-        <label class="btn btn-secondary" for="option2">Жінка</label>
-        </div>
-
         <div class="field">
-            <label>Вес, кг</label>
-            <input type="number" id="inpWeight" value="60"/>
+            <label>Вес</label>
+            <input type="number" id="inpWeight" placeholder="килограммы" value="60"/>
         </div>
         
         <div class="field">
-            <label>Рост, см:</label>
-            <input type="number" id="inpHeight"  value="168"/>
+            <label>Рост:</label>
+            <input type="number" id="inpHeight"  placeholder="сантиметры" value="168"/>
         </div>
 
         <div class="field">
             <label>Пульс:</label>
-            <input type="number" id="inpPulse"  value="67"/>
+            <input type="number" class="st-input" id="inpPulse" placeholder="ударов в минуту" value="67"/>
         </div>
 
         <div class="field">
             <label>Давление:</label>
-            <input type="number" id="inpPressureU"  value="120"/>/<input type="number" id="inpPressureL" value="80"/>
+            <input type="number" id="inpPressureU"  value="120"/> / <input type="number" id="inpPressureL" value="80"/>
         </div>
 
         <div class="field">
-            <label>Возраст, лет:</label>
-            <input type="number" id="inpAge" value="39"/>
+            <label>Возраст:</label>
+            <input type="number" id="inpAge" placeholder="лет" value="39"/>
         </div>
          
         <div class="field">
@@ -220,6 +233,13 @@ div.field label {
             <input class="btn-main" type="button" onclick="drawGraph()" value="Submit" />
         </div>
 
-        
+        <div class="result-blok">
+            <label>Ваше соматическое здоровье:</label>
+            <span id="weightIndex"></span>
+            
+            <label>Ваш ИМТ:</label>
+            <span id="healthIndex"></span>      
+        </div>
+
     </div>
 </div>
