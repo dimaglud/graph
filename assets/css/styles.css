@@ -1,0 +1,119 @@
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::placeholder {
+  color: gray;
+  opacity: 0.5; /* Firefox */
+}
+
+.main-container {
+    display: flex;
+}
+
+.form-container {
+    font-family: 'Open Sans';
+    font-style: normal;
+    margin: 5% 0;
+    padding-left: 10px;
+}
+
+div.field {
+  padding-bottom: 10px;
+}
+
+div.field label {
+    display: inline-block;
+    vertical-align:middle;
+    width: 80px;
+}
+
+div.field .units {
+    font-weight: 400;
+    font-size: 11px;
+}
+
+div.field input {
+    width: 100px;
+    height: 40px;
+
+    background: #FFFFFF;
+    border: 0.878274px solid #D4D4D4;
+    border-radius: 21px;
+
+    font-weight: 300;
+    font-size: 18px;
+
+    text-align: right;
+
+    color: #A8A8A8;
+}
+
+div.field input[type='button'] {
+    width: auto;
+    background: #24B8AF;
+    border-radius: 12px;
+    color: #FFFFFF;
+    padding: 10px 30px;
+    margin: 20px 0 10px 0;
+}
+
+div.field input.inp-small {
+    padding: 0;
+    width: 50px;
+    text-align: center;
+}
+
+.field.weight input {
+    padding-right: 40px;
+}
+
+.field.weight .units {
+    margin-left: -30px;
+}
+
+
+div.field input:hover {
+    border-color: rgb(126, 10, 10);
+}
+
+div.results-container {
+    display: flex;
+}
+
+div.result-form {
+    font-weight: 300;
+    font-size: 14.6844px;
+    line-height: 18px;
+
+    padding: 10px;
+    margin-bottom: 20px;
+    vertical-align:middle;
+}
+
+div.result-form span {
+    font-size: 20px;
+
+    vertical-align:middle;
+}
+
+.graph-container {
+
+    width: 65%;
+    height: fit-content;
+}
+
+.graph-dot {
+    width: 10px;
+    height: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+
+.graph-grid {
+    width: 100%;
+    height: 100%;
+}
