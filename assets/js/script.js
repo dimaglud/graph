@@ -2,6 +2,8 @@ window.addEventListener('resize', function(event) {
     drawGraph();
 }, true);
 
+let isManSelected = true;
+
 function drawGraph() {
     const container = document.getElementById('graph');
     const dot = document.getElementById('graph_dot');
@@ -61,6 +63,19 @@ function drawGraph() {
 
     dot.style.left = x + "px";
     dot.style.bottom = y + "px";
+}
+
+function toggleSex() {
+    const inpSex = document.getElementById("inpSex");
+    isManSelected = !isManSelected;
+    if (isManSelected) {
+        inpSex.classList.remove("woman-selected");
+        inpSex.classList.add("man-selected");
+    }
+    else {
+        inpSex.classList.remove("man-selected");
+        inpSex.classList.add("woman-selected");
+    }
 }
 
 //TODO: use this function 

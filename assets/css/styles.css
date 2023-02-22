@@ -20,6 +20,24 @@ input::-webkit-inner-spin-button {
     padding-left: 10px;
 }
 
+.graph-container {
+
+    width: 65%;
+    height: fit-content;
+}
+
+.graph-dot {
+    width: 10px;
+    height: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.graph-grid {
+    width: 100%;
+    height: 100%;
+}
+
 div.field {
   padding-bottom: 10px;
 }
@@ -33,15 +51,18 @@ div.field label {
 div.field .units {
     font-weight: 400;
     font-size: 11px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-bottom: 8px;
 }
 
 div.field input {
     width: 100px;
-    height: 40px;
+    height: 45px;
 
     background: #FFFFFF;
     border: 0.878274px solid #D4D4D4;
-    border-radius: 21px;
+    border-radius: 22px;
 
     font-weight: 300;
     font-size: 18px;
@@ -99,21 +120,95 @@ div.result-form span {
     vertical-align:middle;
 }
 
-.graph-container {
-
-    width: 65%;
-    height: fit-content;
+div.sex-input {
+    display: inline-block;
+    vertical-align: middle;
+    width: 292px;
+    height: 45px;
+    background: #FAFAFA;
+    border: 0.7px solid #EAEAEA;
+    border-radius: 22px;
 }
 
-.graph-dot {
-    width: 10px;
-    height: 10px;
+div.sex-highlight {
     position: relative;
+    width: 130px;
+    height: 43px;
+    background: #FFFFFF;
+    border: 0.7px solid #EAEAEA;
+    border-radius: 22px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: all 1s;
+}
+
+div.sex-labels {
+    width: 292px;
+    height: 45px;
+    position: absolute;
     z-index: 2;
 }
 
+div.sex-labels div {
+    display: inline-block;
+    width: fit-content;
+    margin: 9px 15px 0 15px;
+}
 
-.graph-grid {
-    width: 100%;
-    height: 100%;
+div.sex-labels div.woman {
+    float: right;
+}
+
+div.sex-labels span {
+    vertical-align: middle;
+    margin-left: 5px;
+    transition: color 1s;
+}
+
+div.sex-labels svg {
+    vertical-align: middle;
+    transition: fill 1s;
+    transition-delay: 1s;
+}
+
+/*selection*/
+
+div.sex-input.man-selected .sex-highlight {
+    left: 0;
+}
+
+div.sex-input.man-selected .man svg path {
+    fill: #24B8AF;
+}
+
+div.sex-input.man-selected .woman svg path {
+    fill: #B3B2B2;
+}
+
+div.sex-input.man-selected .man span {
+    color: #000000;
+}
+
+div.sex-input.man-selected .woman span {
+    color: #B3B2B2;
+}
+
+
+div.sex-input.woman-selected .sex-highlight {
+    left: 161px;
+}
+
+div.sex-input.woman-selected .man svg path {
+    fill: #B3B2B2;
+}
+
+div.sex-input.woman-selected .woman svg path {
+    fill: #24B8AF;
+}
+
+div.sex-input.woman-selected .man span {
+    color: #B3B2B2;
+}
+
+div.sex-input.woman-selected .woman span {
+    color: #000000;
 }
