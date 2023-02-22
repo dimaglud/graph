@@ -45,7 +45,7 @@ div.field {
 div.field label {
     display: inline-block;
     vertical-align:middle;
-    width: 80px;
+    width: 90px;
 }
 
 div.field .units {
@@ -83,18 +83,42 @@ div.field input[type='button'] {
 
 div.field input.inp-small {
     padding: 0;
-    width: 50px;
+    width: 62px;
     text-align: center;
 }
 
+.field.age input {
+    padding-right: 50px;
+}
+
+.field.age .units {
+    margin-left: -45px;
+}
+
 .field.weight input {
-    padding-right: 40px;
+    padding-right: 50px;
 }
 
 .field.weight .units {
-    margin-left: -30px;
+    margin-left: -45px;
 }
 
+.field.height input {
+    padding-right: 50px;
+}
+
+.field.height .units {
+    margin-left: -45px;
+}
+
+.field.pulse input {
+    padding-right: 80px;
+    width: 130px;
+}
+
+.field.pulse .units {
+    margin-left: -75px;
+}
 
 div.field input:hover {
     border-color: rgb(126, 10, 10);

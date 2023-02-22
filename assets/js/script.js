@@ -47,8 +47,20 @@ function drawGraph() {
     const imtSpan = document.getElementById(`healthIndex`);
     imtSpan.innerText = Math.round(healthIndex * 1000) / 1000;
     
-    // var weightIndex = 18.5;
-    // var healthIndex = 0.525;
+    // index text
+
+    if (imtSpan < 1.4) {
+        greeting = "очень плохо";
+      } else if (imtSpan < 1,7) {
+        greeting = "плохо";
+      } else if (imtSpan < 2.1){
+        greeting = "удовлитворительно";}
+        else if (imtSpan < 2.5) {greeting = "хорошо";}
+        else {greeting = "отлично";}
+      
+    document.getElementById("imtTXT").innerHTML = greeting;
+
+
     
     console.log("индекс Веса: " + weightIndex + " индекс Здоровья: " + healthIndex);
 
