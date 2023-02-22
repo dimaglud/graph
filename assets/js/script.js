@@ -49,16 +49,27 @@ function drawGraph() {
     
     // index text
 
-    if (healthIndex < 1.4) {
-        greeting = "очень плохо";
-      } else if (healthIndex < 1,7) {
-        greeting = "плохо";
-      } else if (healthIndex < 2.1){
-        greeting = "удовлитворительно";}
-        else if (healthIndex < 2.5) {greeting = "хорошо";}
-        else {greeting = "отлично";}
+    if (weightIndex < 18.5) {
+        wResult = "Ниже нормального веса";
+      } else if (weightIndex < 25) {
+        wResult = "Нормальный вес";
+      } else if (weightIndex < 30){
+        wResult = "Избыточный вес";}
+        else if (weightIndex < 35) {wResult = "Ожирение";}
+        else {wResult = "Ожирение";}
       
-    document.getElementById("healthTXT").innerText = greeting;
+    document.getElementById("weightTXT").innerText = wResult;
+
+    if (healthIndex < 0.375) {
+        hResult= "НИЗКИЙ";
+      } else if (healthIndex < 0.525) {
+        hResult = "НИЖЕ СРЕДНЕГО";
+      } else if (healthIndex < 0.675){
+        hResult = "СРЕДНИЙ";}
+        else if (healthIndex < 0.825) {hResult = "ВЫШЕ СРЕДНЕГО";}
+        else {hResult = "ВЫСОКИЙ";}
+      
+    document.getElementById("healthTXT").innerText = hResult;
 
 
     
