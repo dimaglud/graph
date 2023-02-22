@@ -4,6 +4,11 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+/* arrows remove */
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
 ::placeholder {
   color: gray;
   opacity: 0.5; /* Firefox */
@@ -132,15 +137,15 @@ div.result-form {
     font-weight: 300;
     font-size: 14.6844px;
     line-height: 18px;
-
     padding: 10px;
     margin-bottom: 20px;
     vertical-align:middle;
 }
 
 div.result-form span {
-    font-size: 15px;
-    font-weight: 300;
+    font-size: 17px;
+    font-style: ;
+    font-weight: bold;
     vertical-align:middle;
 }
 

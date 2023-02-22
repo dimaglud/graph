@@ -50,24 +50,24 @@ function drawGraph() {
     // index text
 
     if (weightIndex < 18.5) {
-        wResult = "Ниже нормального веса";
+        wResult = "(Ниже нормального веса)";
       } else if (weightIndex < 25) {
-        wResult = "Нормальный вес";
+        wResult = "(Нормальный вес)";
       } else if (weightIndex < 30){
-        wResult = "Избыточный вес";}
-        else if (weightIndex < 35) {wResult = "Ожирение";}
-        else {wResult = "Ожирение";}
+        wResult = "(Избыточный вес)";}
+        else if (weightIndex < 35) {wResult = "(Ожирение)";}
+        else {wResult = "(Ожирение)";}
       
     document.getElementById("weightTXT").innerText = wResult;
 
     if (healthIndex < 0.375) {
-        hResult= "НИЗКИЙ";
+        hResult= " (Низкое)";
       } else if (healthIndex < 0.525) {
-        hResult = "НИЖЕ СРЕДНЕГО";
+        hResult = " (Ниже среднего)";
       } else if (healthIndex < 0.675){
-        hResult = "СРЕДНИЙ";}
-        else if (healthIndex < 0.825) {hResult = "ВЫШЕ СРЕДНЕГО";}
-        else {hResult = "ВЫСОКИЙ";}
+        hResult = " (Среднее)";}
+        else if (healthIndex < 0.825) {hResult = " (Выше среднего";}
+        else {hResult = " (Высокое)";}
       
     document.getElementById("healthTXT").innerText = hResult;
 
