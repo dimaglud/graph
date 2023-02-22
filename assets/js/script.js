@@ -44,21 +44,21 @@ function drawGraph() {
     const weightSpan = document.getElementById(`weightIndex`);
     weightSpan.innerText = Math.round(weightIndex * 10) / 10;
 
-    const imtSpan = document.getElementById(`healthIndex`);
-    imtSpan.innerText = Math.round(healthIndex * 1000) / 1000;
+    const healthSpan = document.getElementById(`healthIndex`);
+    healthSpan.innerText = Math.round(healthIndex * 1000) / 1000;
     
     // index text
 
-    if (imtSpan < 1.4) {
+    if (healthIndex < 1.4) {
         greeting = "очень плохо";
-      } else if (imtSpan < 1,7) {
+      } else if (healthIndex < 1,7) {
         greeting = "плохо";
-      } else if (imtSpan < 2.1){
+      } else if (healthIndex < 2.1){
         greeting = "удовлитворительно";}
-        else if (imtSpan < 2.5) {greeting = "хорошо";}
+        else if (healthIndex < 2.5) {greeting = "хорошо";}
         else {greeting = "отлично";}
       
-    document.getElementById("imtTXT").innerHTML = greeting;
+    document.getElementById("healthTXT").innerText = greeting;
 
 
     
