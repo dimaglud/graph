@@ -11,7 +11,6 @@ function drawGraph() {
     const width = container.offsetWidth;
     const height = container.offsetHeight;
     
-
     const weightInput = document.getElementById('inpWeight');
     const weight = +weightInput.value;
 
@@ -32,8 +31,11 @@ function drawGraph() {
     const pressureL = +pressureInputL.value;
 
     // added Age
-    const ageInput = document.getElementById('inpAge');
+    const ageInput = document.getElementById('inpAge');        
     const age = ageInput.value;
+
+    if (validateInput(ageInput, 16, 60) || validateInput(pulseInput, 16, 60) == false)
+        return;
 
     //TODO: get other needed parameters from inputs
     //TODO: add validation 
@@ -51,12 +53,19 @@ function drawGraph() {
 
     if (weightIndex < 18.5) {
         wResult = "(Ниже нормального веса)";
-      } else if (weightIndex < 25) {
+    } 
+    else if (weightIndex < 25) {
         wResult = "(Нормальный вес)";
-      } else if (weightIndex < 30){
-        wResult = "(Избыточный вес)";}
-        else if (weightIndex < 35) {wResult = "(Ожирение)";}
-        else {wResult = "(Ожирение)";}
+    }
+    else if (weightIndex < 30) {
+        wResult = "(Избыточный вес)";
+    }        
+    else if (weightIndex < 35) {
+        wResult = "(Ожирение)";
+    }
+    else {
+        wResult = "(Ожирение)";
+    }
       
     document.getElementById("weightTXT").innerText = wResult;
 
@@ -88,6 +97,16 @@ function drawGraph() {
     dot.style.bottom = y + "px";
 }
 
+function validateInput(element, min, max) {
+    let value = +element.value;
+    if (value < min || value > max) {
+        //TODO make red border
+        return false;
+    }
+
+    return true;
+}
+
 function toggleSex() {
     const inpSex = document.getElementById("inpSex");
     isManSelected = !isManSelected;
@@ -99,6 +118,8 @@ function toggleSex() {
         inpSex.classList.remove("man-selected");
         inpSex.classList.add("woman-selected");
     }
+
+    
 }
 
 //TODO: use this function 
