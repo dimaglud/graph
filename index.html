@@ -5,7 +5,11 @@
 
 <div class="main-container">   
     <div class="graph-container" id="graph">
+<!--
         <img class="graph-grid" src="./assets/img/graph_man.svg" />
+
+-->
+        <img class="graph-grid" id="graph_img" src=graphshown />
         <img class="graph-dot" id="graph_dot" src="./assets/img/dot.svg" />
     </div>
 
@@ -35,9 +39,16 @@
             </div>
         </div>
 
+    <!--
         <div class="field age">
             <label>Возраст</label>
             <input type="number" id="inpAge" value="39" onchange="validateInput(this, 16, 60)" />
+            <span class="units">лет</span>
+        </div>
+    -->
+        <div class="field age">
+            <label>Возраст</label>
+            <input type="number" id="inpAge" value="39" onchange="validateInput(this, 16, 60)"/>
             <span class="units">лет</span>
         </div>
 

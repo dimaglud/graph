@@ -34,8 +34,11 @@ function drawGraph() {
     const ageInput = document.getElementById('inpAge');        
     const age = ageInput.value;
 
+
+    /*
     if (validateInput(ageInput, 16, 60) || validateInput(pulseInput, 16, 60) == false)
-        return;
+        return [{ messagem: 'ERROR INPUT' }];
+*/
 
     //TODO: get other needed parameters from inputs
     //TODO: add validation 
@@ -69,14 +72,49 @@ function drawGraph() {
       
     document.getElementById("weightTXT").innerText = wResult;
 
-    if (healthIndex < 0.375) {
-        hResult= " (Низкое)";
-      } else if (healthIndex < 0.525) {
-        hResult = " (Ниже среднего)";
-      } else if (healthIndex < 0.675){
-        hResult = " (Среднее)";}
-        else if (healthIndex < 0.825) {hResult = " (Выше среднего";}
-        else {hResult = " (Высокое)";}
+    /*
+        if (healthIndex < 0.375) {
+            hResult= " (Низкое)";
+          } else if (healthIndex < 0.525) {
+            hResult = " (Ниже среднего)";
+          } else if (healthIndex < 0.675){
+            hResult = " (Среднее)";}
+            else if (healthIndex < 0.825) {hResult = " (Выше среднего";}
+            else {hResult = " (Высокое)";}
+
+    */
+
+            if (isManSelected == true) {
+                var graphshown = "./assets/img/graph_man.svg"
+            } else {
+                var graphshown = "./assets/img/graph_woman.svg"
+            }
+            
+            document.getElementById('graph_img').src = graphshown;
+    
+
+    if (isManSelected == true) {
+        if (healthIndex < 0.375) {
+            hResult= " (Низкое)";
+          } else if (healthIndex < 0.525) {
+            hResult = " (Ниже среднего)";
+          } else if (healthIndex < 0.675){
+            hResult = " (Среднее)";}
+            else if (healthIndex < 0.825) {hResult = " (Выше среднего";}
+            else {hResult = " (Высокое)";}
+
+    } else {
+        if (healthIndex < 0.260) {
+            hResult= " (Низкое)";
+          } else if (healthIndex < 0.365) {
+            hResult = " (Ниже среднего)";
+          } else if (healthIndex < 0.475){
+            hResult = " (Среднее)";}
+            else if (healthIndex < 0.575) {hResult = " (Выше среднего";}
+            else {hResult = " (Высокое)";}   
+    }
+    
+    
       
     document.getElementById("healthTXT").innerText = hResult;
 
