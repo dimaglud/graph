@@ -35,10 +35,10 @@ function drawGraph() {
     const age = ageInput.value;
 
 
-    /*
-    if (validateInput(ageInput, 16, 60) || validateInput(pulseInput, 16, 60) == false)
-        return [{ messagem: 'ERROR INPUT' }];
-*/
+
+    if (!validateInput(ageInput, 16, 60) || !validateInput(pulseInput, 45, 250) )
+        return [{ messagem: 'ПРОВЕРТЕ ПОЛЯ' }]
+
 
     //TODO: get other needed parameters from inputs
     //TODO: add validation 
@@ -83,14 +83,6 @@ function drawGraph() {
             else {hResult = " (Высокое)";}
 
     */
-
-            if (isManSelected == true) {
-                var graphshown = "./assets/img/graph_man.svg"
-            } else {
-                var graphshown = "./assets/img/graph_woman.svg"
-            }
-            
-            document.getElementById('graph_img').src = graphshown;
     
 
     if (isManSelected == true) {
@@ -139,9 +131,12 @@ function validateInput(element, min, max) {
     let value = +element.value;
     if (value < min || value > max) {
         //TODO make red border
+        element.style.border = '5px solid';
+        element.style.borderColor = 'red';
         return false;
     }
-
+    element.style.border = '0.878274px solid';
+    element.style.borderColor = '#D4D4D4';
     return true;
 }
 
@@ -157,6 +152,13 @@ function toggleSex() {
         inpSex.classList.add("woman-selected");
     }
 
+    if (isManSelected == true) {
+        var graphshown = "./assets/img/graph_man.svg"
+    } else {
+        var graphshown = "./assets/img/graph_woman.svg"
+    }
+    
+    document.getElementById('graph_img').src = graphshown;
     
 }
 
