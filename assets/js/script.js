@@ -1,10 +1,29 @@
+window.addEventListener('load', function(event) {
+    init();
+}, true);
+
 window.addEventListener('resize', function(event) {
     drawGraph();
 }, true);
 
-let isManSelected = true;
+let isManSelected = undefined;
+let isFormSubmited = false;
+
+function init() {
+    const inpSex = document.getElementById("inpSex");
+    isManSelected = inpSex.classList.contains("man-selected");
+}
+
+function submit() {
+    isFormSubmited = true;
+
+    drawGraph();
+}
 
 function drawGraph() {
+    if (!isFormSubmited)
+        return;
+
     const container = document.getElementById('graph');
     const dot = document.getElementById('graph_dot');
 
@@ -33,8 +52,6 @@ function drawGraph() {
     // added Age
     const ageInput = document.getElementById('inpAge');        
     const age = ageInput.value;
-
-
 
     if (!validateInput(ageInput, 16, 60) || !validateInput(pulseInput, 45, 250) )
         return [{ messagem: 'ПРОВЕРТЕ ПОЛЯ' }]
@@ -123,6 +140,8 @@ function drawGraph() {
     var y = 200 * healthIndex - 22;
     y = kY*y;
 
+    dot.style.display = "block";
+    dot.style.width = 10 * kX + "px";
     dot.style.left = x + "px";
     dot.style.bottom = y + "px";
 }
@@ -142,6 +161,7 @@ function validateInput(element, min, max) {
 
 function toggleSex() {
     const inpSex = document.getElementById("inpSex");
+
     isManSelected = !isManSelected;
     if (isManSelected) {
         inpSex.classList.remove("woman-selected");
@@ -153,13 +173,12 @@ function toggleSex() {
     }
 
     if (isManSelected == true) {
-        var graphshown = "./assets/img/graph_man.svg"
+        var graphSrc = "./assets/img/graph_man.svg"
     } else {
-        var graphshown = "./assets/img/graph_woman.svg"
+        var graphSrc = "./assets/img/graph_woman.svg"
     }
     
-    document.getElementById('graph_img').src = graphshown;
-    
+    document.getElementById('graph_img').src = graphSrc;    
 }
 
 //TODO: use this function 
