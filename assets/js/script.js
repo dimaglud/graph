@@ -24,12 +24,6 @@ function drawGraph() {
     if (!isFormSubmited)
         return;
 
-    const container = document.getElementById('graph');
-    const dot = document.getElementById('graph_dot');
-
-    const width = container.offsetWidth;
-    const height = container.offsetHeight;
-    
     const weightInput = document.getElementById('inpWeight');
     const weight = +weightInput.value;
 
@@ -56,13 +50,15 @@ function drawGraph() {
     if (!validateInput(ageInput, 16, 60) || !validateInput(pulseInput, 45, 250) )
         return [{ messagem: 'ПРОВЕРТЕ ПОЛЯ' }]
 
-
-    //TODO: get other needed parameters from inputs
-    //TODO: add validation 
-
     var weightIndex = getWeightIndex(weight,heightM);
     var healthIndex = getHealthIndex(pulse,pressureU,pressureL,age,weight,heightM);
     
+    //weightIndex = 18.5;
+    //healthIndex = 0.525;
+
+    //weightIndex = 25;
+    //healthIndex = 0.826;
+
     const weightSpan = document.getElementById(`weightIndex`);
     weightSpan.innerText = Math.round(weightIndex * 10) / 10;
 
@@ -131,19 +127,20 @@ function drawGraph() {
     
     console.log("индекс Веса: " + weightIndex + " индекс Здоровья: " + healthIndex);
 
-    var kX = width/296;
-    var kY = height/219;
+    const imgGraph = document.getElementById('graph_img');
+    const koef = imgGraph.offsetWidth / 296;
 
-    var x = 5 * weightIndex - 35;
-    x = kX*x;
+    const x = 5 * weightIndex - 36;
+    const y = 200 * healthIndex - 15.5;
 
-    var y = 200 * healthIndex - 22;
-    y = kY*y;
-
-    dot.style.display = "block";
-    dot.style.width = 10 * kX + "px";
-    dot.style.left = x + "px";
-    dot.style.bottom = y + "px";
+    const imgDot = document.getElementById('graph_dot');
+    imgDot.style.display = "block";
+    imgDot.style.width = 10 * koef + "px";
+    setTimeout(() => 
+    { 
+        imgDot.style.marginLeft = x * koef + "px";
+        imgDot.style.marginTop = - y * koef + "px";
+    }, 1);
 }
 
 function validateInput(element, min, max) {

@@ -33,10 +33,9 @@ input[type=number] {
 
 .graph-dot {
     display: none;
-    width: 10px;
-    height: 10px;
     position: relative;
     z-index: 2;
+    transition: all 1s ease-out;
 }
 
 .graph-grid {
