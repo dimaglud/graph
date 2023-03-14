@@ -18,6 +18,12 @@ input[type=number] {
     display: flex;
 }
 
+@media (max-width: 900px) {
+    .main-container {
+        display: block;
+    }        
+}
+
 .form-container {
     font-family: 'Open Sans';
     font-style: normal;
@@ -26,9 +32,13 @@ input[type=number] {
 }
 
 .graph-container {
-
-    width: 65%;
     height: fit-content;
+}
+
+@media (min-width: 900px) {
+    .graph-container {
+        width: 65%;
+    }        
 }
 
 .graph-dot {
@@ -62,7 +72,8 @@ div.field .units {
 }
 
 div.field input {
-    width: 100px;
+    width: 60%;
+    max-width: 260px;
     height: 45px;
 
     background: #FFFFFF;
@@ -83,7 +94,9 @@ div.field input[type='button'] {
     border-radius: 12px;
     color: #FFFFFF;
     padding: 10px 30px;
-    margin: 20px 0 10px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 div.field input.inp-small {
@@ -118,7 +131,6 @@ div.field input.inp-small {
 
 .field.pulse input {
     padding-right: 85px;
-    width: 135px;
 }
 
 .field.pulse .units {
@@ -152,8 +164,8 @@ div.result-form span {
 div.sex-input {
     display: inline-block;
     vertical-align: middle;
-    width: 292px;
-    height: 45px;
+    width: 260px;
+    height: 44px;
     background: #FAFAFA;
     border: 0.7px solid #EAEAEA;
     border-radius: 22px;
@@ -171,8 +183,8 @@ div.sex-highlight {
 }
 
 div.sex-labels {
-    width: 292px;
-    height: 45px;
+    width: 260px;
+    height: 44px;
     position: absolute;
     z-index: 2;
 }
@@ -223,7 +235,7 @@ div.sex-input.man-selected .woman span {
 
 
 div.sex-input.woman-selected .sex-highlight {
-    left: 161px;
+    left: 129px;
 }
 
 div.sex-input.woman-selected .man svg path {
