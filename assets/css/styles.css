@@ -140,8 +140,10 @@ div.field input.inp-small {
   
   .tooltip-text {
     transform: translateY(-50%);
+    z-index: -1;
+    display: inline-block;
     padding: 10px;
-    background-color: #333;
+    background-color: #24B8AF;
     color: #fff;
     border-radius: 5px;
     font-size: 14px;
