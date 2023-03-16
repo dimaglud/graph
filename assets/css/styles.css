@@ -121,6 +121,47 @@ div.field input.inp-small {
     margin-left: -45px;
 }
 
+.tooltip-icon {
+    position: relative;
+    fill: #24B8AF;
+    margin-left: 40px;
+    vertical-align: middle;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .tooltip-icon2 {
+    fill: #24B8AF;
+    margin-left: 25px;
+    vertical-align: middle;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .tooltip-text {
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .tooltip-icon:hover + .tooltip-text,
+  .tooltip-text:hover {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .tooltip-icon2:hover + .tooltip-text,
+  .tooltip-text:hover {
+    opacity: 1;
+    visibility: visible;
+  }
+
 .field.height input {
     padding-right: 50px;
 }
