@@ -16,11 +16,12 @@ function init() {
 
 function submit() {
     isFormSubmited = true;
-
     drawGraph();
 }
 
 function drawGraph() {
+    document.getElementById("results-container").style.visibility = "visible";
+
     if (!isFormSubmited)
         return;
 
@@ -120,7 +121,6 @@ function drawGraph() {
     }
     
     
-      
     document.getElementById("healthTXT").innerText = hResult;
 
 
@@ -141,6 +141,7 @@ function drawGraph() {
         imgDot.style.marginLeft = x * koef + "px";
         imgDot.style.marginTop = - y * koef + "px";
     }, 1);
+
 }
 
 function validateInput(element, min, max) {
@@ -184,6 +185,8 @@ function getFieldValue(name) {
     const heightM = +heightInput.value;
 }
 
+document.getElementById("weigthIntro").innerText = "Ваш ИМТ:";
+
 function getWeightIndex(weight, heightM) {
     //TODO: make formula more readable
     let weight1;
@@ -215,3 +218,4 @@ function getHealthIndex2(pulse, pressureU, pressureL, age, weight, heightM) {
 
     return index1/index2; 
 }
+

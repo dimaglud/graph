@@ -186,9 +186,11 @@ div.field input:hover {
 
 div.results-container {
     display: flex;
+    visibility:hidden;
+
 }
 
-div.result-form {
+div.result-form { 
     font-weight: 300;
     font-size: 14.6844px;
     line-height: 18px;
