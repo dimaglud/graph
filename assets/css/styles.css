@@ -90,7 +90,7 @@ div.field input {
 
 div.field input[type='button'] {
     width: auto;
-    background: #24B8AF;
+    background: #749ca4;
     border-radius: 12px;
     color: #FFFFFF;
     padding: 10px 30px;
@@ -123,7 +123,7 @@ div.field input.inp-small {
 
 .tooltip-icon {
     position: relative;
-    fill: #24B8AF;
+    fill: #749ca4;
     margin-left: 40px;
     vertical-align: middle;
     transform: translateY(-50%);
@@ -131,25 +131,31 @@ div.field input.inp-small {
   }
 
   .tooltip-icon2 {
-    fill: #24B8AF;
+    fill: #749ca4;
     margin-left: 25px;
     vertical-align: middle;
     transform: translateY(-50%);
     cursor: pointer;
   }
   
+.tooltip-text {
+  transform: translateY(-50%);
+  padding: 10px;
+  background-color: rgb(232, 228, 228);
+  color: rgb(33, 33, 33);
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  position: absolute;
+}
+
+@media (max-width: 600px) {
   .tooltip-text {
-    transform: translateY(-50%);
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    font-size: 14px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+    margin-left: -100px;
   }
-  
+}
   .tooltip-icon:hover + .tooltip-text,
   .tooltip-text:hover {
     opacity: 1;
@@ -259,7 +265,7 @@ div.sex-input.man-selected .sex-highlight {
 }
 
 div.sex-input.man-selected .man svg path {
-    fill: #24B8AF;
+    fill: #749ca4;
 }
 
 div.sex-input.man-selected .woman svg path {
@@ -284,7 +290,7 @@ div.sex-input.woman-selected .man svg path {
 }
 
 div.sex-input.woman-selected .woman svg path {
-    fill: #24B8AF;
+    fill: #749ca4;
 }
 
 div.sex-input.woman-selected .man span {

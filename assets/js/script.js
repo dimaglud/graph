@@ -140,6 +140,7 @@ function drawGraph() {
     { 
         imgDot.style.marginLeft = x * koef + "px";
         imgDot.style.marginTop = - y * koef + "px";
+        imgDot.style.marginBottom = y * koef + "px";
     }, 1);
 }
 
