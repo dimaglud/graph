@@ -20,7 +20,6 @@ function submit() {
 }
 
 function drawGraph() {
-    document.getElementById("results-container").style.visibility = "visible";
 
     if (!isFormSubmited)
         return;
@@ -48,8 +47,13 @@ function drawGraph() {
     const ageInput = document.getElementById('inpAge');        
     const age = ageInput.value;
 
-    if (!validateInput(ageInput, 16, 60) || !validateInput(pulseInput, 45, 250) )
-        return [{ messagem: 'ПРОВЕРТЕ ПОЛЯ' }]
+    if (!validateInput(pressureInputU, 80, 150) || !validateInput(pulseInput, 45, 250) || !validateInput(pressureInputL, 50, 150) ){
+        document.getElementById("divCalldoctor").style.visibility = 'visible';
+        return false;
+    }
+    else if (!validateInput(ageInput, 16, 60) ){
+        return false;
+    } document.getElementById("divCalldoctor").style.visibility = 'hidden';
 
     var weightIndex = getWeightIndex(weight,heightM);
     var healthIndex = getHealthIndex(pulse,pressureU,pressureL,age,weight,heightM);
@@ -59,6 +63,7 @@ function drawGraph() {
 
     //weightIndex = 25;
     //healthIndex = 0.826;
+    document.getElementById("divResult").style.visibility = "visible";
 
     const weightSpan = document.getElementById(`weightIndex`);
     weightSpan.innerText = Math.round(weightIndex * 10) / 10;
@@ -185,8 +190,6 @@ function getFieldValue(name) {
     const heightInput = document.getElementById(name);
     const heightM = +heightInput.value;
 }
-
-document.getElementById("weigthIntro").innerText = "Ваш ИМТ:";
 
 function getWeightIndex(weight, heightM) {
     //TODO: make formula more readable

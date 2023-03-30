@@ -91,12 +91,13 @@ div.field input {
 div.field input[type='button'] {
     width: auto;
     background: #749ca4;
-    border-radius: 12px;
+    border-radius: 45px;
     color: #FFFFFF;
-    padding: 10px 30px;
+    padding: 22px 45px 45px 45px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 15px;
 }
 
 div.field input.inp-small {
@@ -191,6 +192,14 @@ div.field input:hover {
 div.results-container {
     display: flex;
     visibility:hidden;
+
+}
+
+div.messageDoc {
+    display: flex;
+    visibility:hidden;
+    font-size: 20;
+    color: red;
 
 }
 
