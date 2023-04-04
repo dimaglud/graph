@@ -123,22 +123,14 @@ div.field input.inp-small {
 }
 
 .tooltip-icon {
-    position: relative;
-    fill: #749ca4;
-    margin-left: 40px;
-    vertical-align: middle;
-    transform: translateY(-50%);
-    cursor: pointer;
-  }
+  position: relative;
+  fill: #749ca4;
+  margin-left: 40px;
+  vertical-align: middle;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 
-  .tooltip-icon2 {
-    fill: #749ca4;
-    margin-left: 25px;
-    vertical-align: middle;
-    transform: translateY(-50%);
-    cursor: pointer;
-  }
-  
 .tooltip-text {
   transform: translateY(-50%);
   padding: 10px;
@@ -157,17 +149,12 @@ div.field input.inp-small {
    margin-left: -100px;
   }
 }
-  .tooltip-icon:hover + .tooltip-text,
-  .tooltip-text:hover {
-    opacity: 1;
-    visibility: visible;
-  }
 
-  .tooltip-icon2:hover + .tooltip-text,
-  .tooltip-text:hover {
-    opacity: 1;
-    visibility: visible;
-  }
+.tooltip-icon:hover + .tooltip-text,
+.tooltip-text:hover {
+  opacity: 1;
+  visibility: visible;
+}
 
 .field.height input {
     padding-right: 50px;
@@ -182,7 +169,8 @@ div.field input.inp-small {
 }
 
 .field.pulse .units {
-    margin-left: -80px;
+  margin-left: -80px;
+  margin-right: -10px;
 }
 
 div.field input:hover {

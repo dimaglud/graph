@@ -3,7 +3,7 @@ window.addEventListener('load', function(event) {
 }, true);
 
 window.addEventListener('resize', function(event) {
-    drawGraph();
+    calculateIndexes();
 }, true);
 
 let isManSelected = undefined;
@@ -16,38 +16,32 @@ function init() {
 
 function submit() {
     isFormSubmited = true;
-    drawGraph();
+    calculateIndexes();
 }
 
-function drawGraph() {
-
+function calculateIndexes() {
     if (!isFormSubmited)
         return;
 
     const weightInput = document.getElementById('inpWeight');
     const weight = +weightInput.value;
 
-    // added height (heightM)
     const heightInput = document.getElementById('inpHeight');
     const heightM = +heightInput.value;
 
-    // added Pulse
     const pulseInput = document.getElementById('inpPulse');
     const pulse = +pulseInput.value;
 
-    // added Pressure Upper (PressureU)
     const pressureInputU = document.getElementById('inpPressureU');
     const pressureU = +pressureInputU.value;
 
-    // added Pressure Lower (PressureL)
     const pressureInputL = document.getElementById('inpPressureL');
     const pressureL = +pressureInputL.value;
 
-    // added Age
     const ageInput = document.getElementById('inpAge');        
     const age = ageInput.value;
 
-    if (!validateInput(pressureInputU, 80, 150) || !validateInput(pulseInput, 45, 250) || !validateInput(pressureInputL, 50, 110) ){
+    if (!validateInput(pulseInput, 45, 100) || !validateInput(pressureInputU, 80, 150) || !validateInput(pressureInputL, 50, 110) ){
         document.getElementById("divCalldoctor").style.visibility = 'visible';
         return false;
     }
@@ -57,14 +51,15 @@ function drawGraph() {
     
     document.getElementById("divCalldoctor").style.visibility = 'hidden';
 
-    var weightIndex = getWeightIndex(weight,heightM);
-    var healthIndex = getHealthIndex(pulse,pressureU,pressureL,age,weight,heightM);
-    
-    //weightIndex = 18.5;
-    //healthIndex = 0.525;
+    var weightIndex = getWeightIndex(weight, heightM);
+    var healthIndex = getHealthIndex(pulse, pressureU, pressureL, age, weight, heightM);
 
-    //weightIndex = 25;
-    //healthIndex = 0.826;
+    showResult(weightIndex, healthIndex);
+
+    drawGraph(weightIndex, healthIndex);
+}
+
+function showResult(weightIndex, healthIndex) {
     document.getElementById("divResult").style.visibility = "visible";
 
     const weightSpan = document.getElementById(`weightIndex`);
@@ -73,8 +68,6 @@ function drawGraph() {
     const healthSpan = document.getElementById(`healthIndex`);
     healthSpan.innerText = Math.round(healthIndex * 1000) / 1000;
     
-    // index text
-
     if (weightIndex < 18.5) {
         wResult = "(Ниже нормального веса)";
     } 
@@ -92,7 +85,6 @@ function drawGraph() {
     }
       
     document.getElementById("weightTXT").innerText = wResult;
-    
 
     if (isManSelected == true) {
         if (healthIndex < 0.375) {
@@ -115,13 +107,10 @@ function drawGraph() {
             else {hResult = " (Высокое)";}   
     }
     
-    
     document.getElementById("healthTXT").innerText = hResult;
+}
 
-
-    
-    console.log("индекс Веса: " + weightIndex + " индекс Здоровья: " + healthIndex);
-
+function drawGraph(weightIndex, healthIndex) {
     const imgGraph = document.getElementById('graph_img');
     const koef = imgGraph.offsetWidth / 296;
 
@@ -131,6 +120,7 @@ function drawGraph() {
     const imgDot = document.getElementById('graph_dot');
     imgDot.style.display = "block";
     imgDot.style.width = 10 * koef + "px";
+
     setTimeout(() => 
     { 
         imgDot.style.marginLeft = x * koef + "px";
@@ -143,7 +133,6 @@ function drawGraph() {
 function validateInput(element, min, max) {
     let value = +element.value;
     if (value < min || value > max) {
-        //TODO make red border
         element.style.border = '5px solid';
         element.style.borderColor = 'red';
         return false;
@@ -175,41 +164,15 @@ function toggleSex() {
     document.getElementById('graph_img').src = graphSrc;    
 }
 
-//TODO: use this function 
-function getFieldValue(name) {
-    const heightInput = document.getElementById(name);
-    const heightM = +heightInput.value;
-}
-
 function getWeightIndex(weight, heightM) {
-    //TODO: make formula more readable
-    let weight1;
-    weight1=weight*10000;
-    let heightSQ;
-    heightSQ = heightM **2;
-    return weight1/heightSQ;
+    let weight1 = weight * 10000;
+    let heightSQ = heightM ** 2;
+    return weight1 / heightSQ;
 }
 
 function getHealthIndex(pulse, pressureU, pressureL, age, weight, heightM) {
     let pressureAvg = (pressureU - pressureL) / 3 + pressureL;
     let indexU = 700 - 3 * pulse - 2.5 * pressureAvg - 2.7 * age + 0.28 * weight;
     let indexL = 350 - 2.6 * age + 0.21 * heightM;
-
     return indexU/indexL; 
 }
-
-//TODO: delete me
-function getHealthIndex2(pulse, pressureU, pressureL, age, weight, heightM) {
-    let pressureAvg = (pressureU - pressureL)/3 + pressureL;
-
-    let indexU = (700 - (3 * pulse));
-    indexU = indexU - (2.5 * pressureAvg);
-    indexU -= 2.7 * age;
-    indexU += 0.28 * weight;
-    
-    let index2a = 350 - (2.6 * age);
-    let index2 = index2a + (0.21*heightM);
-
-    return index1/index2; 
-}
-
