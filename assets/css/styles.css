@@ -195,7 +195,7 @@ div.results-container {
 
 }
 
-div.messageDoc {
+div.doc-message {
     display: flex;
     visibility:hidden;
     font-size: 20;

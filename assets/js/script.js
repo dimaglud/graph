@@ -47,13 +47,15 @@ function drawGraph() {
     const ageInput = document.getElementById('inpAge');        
     const age = ageInput.value;
 
-    if (!validateInput(pressureInputU, 80, 150) || !validateInput(pulseInput, 45, 250) || !validateInput(pressureInputL, 50, 150) ){
+    if (!validateInput(pressureInputU, 80, 150) || !validateInput(pulseInput, 45, 250) || !validateInput(pressureInputL, 50, 110) ){
         document.getElementById("divCalldoctor").style.visibility = 'visible';
         return false;
     }
     else if (!validateInput(ageInput, 16, 60) ){
         return false;
-    } document.getElementById("divCalldoctor").style.visibility = 'hidden';
+    } 
+    
+    document.getElementById("divCalldoctor").style.visibility = 'hidden';
 
     var weightIndex = getWeightIndex(weight,heightM);
     var healthIndex = getHealthIndex(pulse,pressureU,pressureL,age,weight,heightM);
@@ -90,18 +92,6 @@ function drawGraph() {
     }
       
     document.getElementById("weightTXT").innerText = wResult;
-
-    /*
-        if (healthIndex < 0.375) {
-            hResult= " (Низкое)";
-          } else if (healthIndex < 0.525) {
-            hResult = " (Ниже среднего)";
-          } else if (healthIndex < 0.675){
-            hResult = " (Среднее)";}
-            else if (healthIndex < 0.825) {hResult = " (Выше среднего";}
-            else {hResult = " (Высокое)";}
-
-    */
     
 
     if (isManSelected == true) {
