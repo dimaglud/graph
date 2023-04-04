@@ -1,0 +1,301 @@
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* arrows remove */
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+::placeholder {
+  color: gray;
+  opacity: 0.5; /* Firefox */
+}
+
+.main-container {
+    display: flex;
+}
+
+@media (max-width: 900px) {
+    .main-container {
+        display: block;
+    }        
+}
+
+.form-container {
+    font-family: 'Open Sans';
+    font-style: normal;
+    margin: 5% 0;
+    padding-left: 10px;
+}
+
+.graph-container {
+    height: fit-content;
+}
+
+@media (min-width: 900px) {
+    .graph-container {
+        width: 65%;
+    }        
+}
+
+.graph-dot {
+    display: none;
+    position: relative;
+    z-index: 2;
+    transition: all 1s ease-out;
+}
+
+.graph-grid {
+    width: 100%;
+    height: 100%;
+}
+
+div.field {
+  padding-bottom: 10px;
+}
+
+div.field label {
+    display: inline-block;
+    vertical-align:middle;
+    width: 90px;
+}
+
+div.field .units {
+    font-weight: 400;
+    font-size: 11px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-bottom: 3px;
+}
+
+div.field input {
+    width: 60%;
+    max-width: 260px;
+    height: 45px;
+
+    background: #FFFFFF;
+    border: 0.878274px solid #D4D4D4;
+    border-radius: 22px;
+
+    font-weight: 300;
+    font-size: 18px;
+
+    text-align: right;
+
+    color: #A8A8A8;
+}
+
+div.field input[type='button'] {
+    width: auto;
+    background: #749ca4;
+    border-radius: 45px;
+    color: #FFFFFF;
+    padding: 22px 45px 45px 45px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+
+div.field input.inp-small {
+    padding: 0;
+    width: 62px;
+    text-align: center;
+}
+
+.field.age input {
+    padding-right: 50px;
+}
+
+.field.age .units {
+    margin-left: -45px;
+}
+
+.field.weight input {
+    padding-right: 50px;
+}
+
+.field.weight .units {
+    margin-left: -45px;
+}
+
+.tooltip-icon {
+  position: relative;
+  fill: #749ca4;
+  margin-left: 40px;
+  vertical-align: middle;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.tooltip-text {
+  transform: translateY(-50%);
+  padding: 10px;
+  background-color: rgb(232, 228, 228);
+  color: rgb(33, 33, 33);
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  position: absolute;
+}
+
+@media (max-width: 600px) {
+  .tooltip-text {
+   margin-left: -100px;
+  }
+}
+
+.tooltip-icon:hover + .tooltip-text,
+.tooltip-text:hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+.field.height input {
+    padding-right: 50px;
+}
+
+.field.height .units {
+    margin-left: -45px;
+}
+
+.field.pulse input {
+    padding-right: 85px;
+}
+
+.field.pulse .units {
+  margin-left: -80px;
+  margin-right: -10px;
+}
+
+div.field input:hover {
+    border-color: rgb(126, 10, 10);
+}
+
+div.results-container {
+    display: flex;
+    visibility:hidden;
+
+}
+
+div.doc-message {
+    display: flex;
+    visibility:hidden;
+    font-size: 20;
+    color: red;
+
+}
+
+div.result-form { 
+    font-weight: 300;
+    font-size: 14.6844px;
+    line-height: 18px;
+    padding: 10px;
+    margin-bottom: 20px;
+    vertical-align:middle;
+}
+
+div.result-form span {
+    font-size: 17px;
+    font-style: ;
+    font-weight: bold;
+    vertical-align:middle;
+}
+
+div.sex-input {
+    display: inline-block;
+    vertical-align: middle;
+    width: 260px;
+    height: 44px;
+    background: #FAFAFA;
+    border: 0.7px solid #EAEAEA;
+    border-radius: 22px;
+}
+
+div.sex-highlight {
+    position: relative;
+    width: 130px;
+    height: 43px;
+    background: #FFFFFF;
+    border: 0.7px solid #EAEAEA;
+    border-radius: 22px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: all 1s;
+}
+
+div.sex-labels {
+    width: 260px;
+    height: 44px;
+    position: absolute;
+    z-index: 2;
+}
+
+div.sex-labels div {
+    display: inline-block;
+    width: fit-content;
+    margin: 9px 15px 0 15px;
+}
+
+div.sex-labels div.woman {
+    float: right;
+}
+
+div.sex-labels span {
+    vertical-align: middle;
+    margin-left: 5px;
+    transition: color 1s;
+}
+
+div.sex-labels svg {
+    vertical-align: middle;
+    transition: fill 1s;
+    transition-delay: 1s;
+}
+
+/*selection*/
+
+div.sex-input.man-selected .sex-highlight {
+    left: 0;
+}
+
+div.sex-input.man-selected .man svg path {
+    fill: #749ca4;
+}
+
+div.sex-input.man-selected .woman svg path {
+    fill: #B3B2B2;
+}
+
+div.sex-input.man-selected .man span {
+    color: #000000;
+}
+
+div.sex-input.man-selected .woman span {
+    color: #B3B2B2;
+}
+
+
+div.sex-input.woman-selected .sex-highlight {
+    left: 129px;
+}
+
+div.sex-input.woman-selected .man svg path {
+    fill: #B3B2B2;
+}
+
+div.sex-input.woman-selected .woman svg path {
+    fill: #749ca4;
+}
+
+div.sex-input.woman-selected .man span {
+    color: #B3B2B2;
+}
+
+div.sex-input.woman-selected .woman span {
+    color: #000000;
+}
