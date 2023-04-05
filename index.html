@@ -32,50 +32,55 @@
 
         <div class="field age">
             <label>Возраст</label>
-            <input type="number" id="inpAge" onchange="validateInput(this,16,60)"/>
-            <span class="units">лет</span>
             <span class="tooltip-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.033 16.01c.564-1.789 1.632-3.932 1.821-4.474.273-.787-.211-1.136-1.74.209l-.34-.64c1.744-1.897 5.335-2.326 4.113.613-.763 1.835-1.309 3.074-1.621 4.03-.455 1.393.694.828 1.819-.211.153.25.203.331.356.619-2.498 2.378-5.271 2.588-4.408-.146zm4.742-8.169c-.532.453-1.32.443-1.761-.022-.441-.465-.367-1.208.164-1.661.532-.453 1.32-.442 1.761.022.439.466.367 1.209-.164 1.661z"/>
                 </svg>
             </span>
             <span class="tooltip-text">Возраст от 16 до 60</span>
+            <input type="number" id="inpAge" value="35" onchange="validateInput(this,16,60)"/>
+            <span class="units">лет</span>
         </div>
 
         <div class="field weight">
             <label>Вес</label>
-            <input type="number" id="inpWeight" required />
+            <span class="tooltip-icon">
+            </span>
+            <input type="number" id="inpWeight" value="70" required />
             <span class="units">кг</span>
         </div>
         
         <div class="field height">
             <label>Рост</label>
-            <input type="number" id="inpHeight" />
+            <span class="tooltip-icon">
+            </span>
+            <input type="number" id="inpHeight" value="175" />
             <span class="units">см</span>
         </div>
 
         <div class="field pulse">
             <label>Пульс</label>
-            <input type="number" id="inpPulse" onchange="validateInput(this,45,100)"/>
-            <span class="units">ударов/мин</span>
             <span class="tooltip-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.033 16.01c.564-1.789 1.632-3.932 1.821-4.474.273-.787-.211-1.136-1.74.209l-.34-.64c1.744-1.897 5.335-2.326 4.113.613-.763 1.835-1.309 3.074-1.621 4.03-.455 1.393.694.828 1.819-.211.153.25.203.331.356.619-2.498 2.378-5.271 2.588-4.408-.146zm4.742-8.169c-.532.453-1.32.443-1.761-.022-.441-.465-.367-1.208.164-1.661.532-.453 1.32-.442 1.761.022.439.466.367 1.209-.164 1.661z"/>
                 </svg>
             </span>
             <span class="tooltip-text">Количество ударов в минуту от 45 до 100 в состоянии покоя</span>
+            <input type="number" id="inpPulse" value="68" onchange="validateInput(this,45,100)"/>
+            <span class="units">ударов/мин</span>
+
         </div>
 
         <div class="field pressure">
             <label>Давление</label>
-            <input type="number" id="inpPressureU" class="inp-small" onchange="validateInput(this,80,150)"/> /
-            <input type="number" id="inpPressureL" class="inp-small" onchange="validateInput(this,50,110)"/>
             <span class="tooltip-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.033 16.01c.564-1.789 1.632-3.932 1.821-4.474.273-.787-.211-1.136-1.74.209l-.34-.64c1.744-1.897 5.335-2.326 4.113.613-.763 1.835-1.309 3.074-1.621 4.03-.455 1.393.694.828 1.819-.211.153.25.203.331.356.619-2.498 2.378-5.271 2.588-4.408-.146zm4.742-8.169c-.532.453-1.32.443-1.761-.022-.441-.465-.367-1.208.164-1.661.532-.453 1.32-.442 1.761.022.439.466.367 1.209-.164 1.661z"/>
                 </svg>
             </span>
             <span class="tooltip-text">Давление: верхнее 80-150, нижнее 50-110</span>
+            <input type="number" id="inpPressureU" class="inp-small" value="120" onchange="validateInput(this,80,150)"/> /
+            <input type="number" id="inpPressureL" class="inp-small" value="80" onchange="validateInput(this,50,110)"/>
         </div>
          
         <div class="field">
@@ -98,7 +103,7 @@
                 </div>
             </div>    
         </div>
-        <div class="doc-message" id="divCalldoctor"> Рекоммендуем обратиться к врачу </div>
+        <div class="doc-message" id="divCalldoctor"> Рекоммендовано обратиться к врачу </div>
 
     </div>
 

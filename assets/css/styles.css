@@ -125,7 +125,8 @@ div.field input.inp-small {
 .tooltip-icon {
   position: relative;
   fill: #749ca4;
-  margin-left: 40px;
+  margin-left: -7px;
+  padding-right: 8px;
   vertical-align: middle;
   transform: translateY(-50%);
   cursor: pointer;
