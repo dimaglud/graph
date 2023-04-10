@@ -10,7 +10,7 @@ input[type=number] {
   }
 
 ::placeholder {
-  color: gray;
+  color: rgb(165, 165, 165);
   opacity: 0.5; /* Firefox */
 }
 
@@ -72,17 +72,17 @@ div.field .units {
 }
 
 div.field input {
-    width: 60%;
-    max-width: 260px;
+    width: 40%;
+    max-width: 210px;
     height: 45px;
 
     background: #FFFFFF;
     border: 0.878274px solid #D4D4D4;
     border-radius: 22px;
 
-    font-weight: 300;
-    font-size: 18px;
-
+    font-weight: 500;
+    font-size: 15px;
+    font-family: Sans-serif;
     text-align: right;
 
     color: #A8A8A8;
@@ -90,10 +90,11 @@ div.field input {
 
 div.field input[type='button'] {
     width: auto;
+    font-weight: 600;
     background: #749ca4;
     border-radius: 45px;
     color: #FFFFFF;
-    padding: 22px 45px 45px 45px;
+    padding: 22px 35px 40px 35px;
     display: block;
     margin-left: auto;
     margin-right: auto;

@@ -103,7 +103,7 @@ function showResult(weightIndex, healthIndex) {
             hResult = " (Ниже среднего)";
           } else if (healthIndex < 0.475){
             hResult = " (Среднее)";}
-            else if (healthIndex < 0.575) {hResult = " (Выше среднего";}
+            else if (healthIndex < 0.575) {hResult = " (Выше среднего)";}
             else {hResult = " (Высокое)";}   
     }
     
