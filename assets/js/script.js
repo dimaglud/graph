@@ -23,6 +23,10 @@ function calculateIndexes() {
     if (!isFormSubmited)
         return;
 
+    document.getElementById('graph_dot').style.visibility = "hidden";
+    document.getElementById("divCalldoctor").style.visibility = 'hidden';
+    document.getElementById("divResult").style.visibility = "hidden";
+
     const weightInput = document.getElementById('inpWeight');
     const weight = +weightInput.value;
 
@@ -48,8 +52,6 @@ function calculateIndexes() {
     else if (!validateInput(ageInput, 16, 60) ){
         return false;
     } 
-    
-    document.getElementById("divCalldoctor").style.visibility = 'hidden';
 
     var weightIndex = getWeightIndex(weight, heightM);
     var healthIndex = getHealthIndex(pulse, pressureU, pressureL, age, weight, heightM);
@@ -118,16 +120,11 @@ function drawGraph(weightIndex, healthIndex) {
     const y = 200 * healthIndex - 15.5;
 
     const imgDot = document.getElementById('graph_dot');
-    imgDot.style.display = "block";
+    imgDot.style.visibility = "visible";
     imgDot.style.width = 10 * koef + "px";
-
-    setTimeout(() => 
-    { 
-        imgDot.style.marginLeft = x * koef + "px";
-        imgDot.style.marginTop = - y * koef + "px";
-        imgDot.style.marginBottom = y * koef + "px";
-    }, 1);
-
+    imgDot.style.marginLeft = x * koef + "px";
+    imgDot.style.marginTop = - y * koef + "px";
+    imgDot.style.marginBottom = y * koef + "px";
 }
 
 function validateInput(element, min, max) {

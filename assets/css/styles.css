@@ -42,7 +42,7 @@ input[type=number] {
 }
 
 .graph-dot {
-    display: none;
+    visibility: hidden;
     position: relative;
     z-index: 2;
     transition: all 1s ease-out;
@@ -184,7 +184,6 @@ div.field input:hover {
 div.results-container {
     display: flex;
     visibility:hidden;
-
 }
 
 div.doc-message {
@@ -192,7 +191,6 @@ div.doc-message {
     visibility:hidden;
     font-size: 20;
     color: red;
-
 }
 
 div.result-form { 
