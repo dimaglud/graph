@@ -74,6 +74,7 @@ div.field .units {
 div.field input {
     width: 40%;
     max-width: 210px;
+    min-width: 120px;
     height: 45px;
 
     background: #FFFFFF;
@@ -105,6 +106,7 @@ div.field input.inp-small {
     padding: 0;
     width: 62px;
     text-align: center;
+    min-width: auto;
 }
 
 .field.age input {
