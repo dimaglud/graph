@@ -45,27 +45,22 @@ function calculateIndexes() {
     const ageInput = document.getElementById('inpAge');        
     const age = ageInput.value;
 
-    validateInput(pulseInput, 45, 100);
-    validateInput(pressureInputU, 80, 150);
-    validateInput(pressureInputL, 50, 110);
-    validateInput(ageInput, 16, 60); 
-    validateInput(weightInput, 10, 300); 
-    validateInput(heightInput, 10, 300);
+    let isValid = validateInput(pulseInput, 45, 100, true);
+    isValid = validateInput(pressureInputU, 80, 150, true) && isValid;
+    isValid = validateInput(pressureInputL, 50, 110, true) && isValid;
+    isValid = validateInput(ageInput, 16, 60) && isValid; 
+    isValid = validateInput(weightInput, 10, 300) && isValid; 
+    isValid = validateInput(heightInput, 10, 300) && isValid;
 
-    if ( (validateInput(pulseInput, 45, 100) == 2) || (validateInput(pressureInputU, 80, 150) == 2) || (validateInput(pressureInputL, 50, 110) == 2 )) {
-        document.getElementById("divCalldoctor").style.visibility = 'visible';
-        return false;
-    }
-    else if (!validateInput(ageInput, 16, 60) || !validateInput(weightInput, 10, 300) || !validateInput(heightInput, 10, 300) ){
-        return false;
-    } 
+    if(!isValid)
+        return;
 
     var weightIndex = getWeightIndex(weight, heightM);
     var healthIndex = getHealthIndex(pulse, pressureU, pressureL, age, weight, heightM);
 
-    showResult(weightIndex, healthIndex);
-
-    drawGraph(weightIndex, healthIndex);
+    if (showResult(weightIndex, healthIndex)) {
+        drawGraph(weightIndex, healthIndex);
+    }
 }
 
 function showResult(weightIndex, healthIndex) {
@@ -85,21 +80,20 @@ function showResult(weightIndex, healthIndex) {
     }
     else if (weightIndex < 30) {
         wResult = "(Избыточный вес)";
-        document.getElementById("divCalldoctor").style.visibility = 'visible';
-    //    document.getElementById('graph_dot').style.visibility = "hidden";
     }        
     else if (weightIndex < 35) {
         wResult = "(Ожирение)";
-        document.getElementById("divCalldoctor").style.visibility = 'visible';
-    //    document.getElementById('graph_dot').style.visibility = "hidden";
     }
     else {
         wResult = "(Ожирение)";
-        document.getElementById("divCalldoctor").style.visibility = 'visible';
-    //    document.getElementById('graph_dot').style.visibility = "hidden";
     }
       
     document.getElementById("weightTXT").innerText = wResult;
+
+    if (weightIndex > 30) {
+        document.getElementById("divCalldoctor").style.visibility = 'visible';
+        return false;
+    }
 
     if (isManSelected == true) {
         if (healthIndex < 0.375) {
@@ -123,6 +117,8 @@ function showResult(weightIndex, healthIndex) {
     }
     
     document.getElementById("healthTXT").innerText = hResult;
+
+    return true;
 }
 
 function drawGraph(weightIndex, healthIndex) {
@@ -140,18 +136,15 @@ function drawGraph(weightIndex, healthIndex) {
     imgDot.style.marginBottom = y * koef + "px";
 }
 
-function validateInput(element, min, max) {
+function validateInput(element, min, max, showMessage) {
     let value = +element.value; // returns 0 или value (number)
-    if (value == 0){
-        element.style.border = '5px solid';
+    if (value < min || value > max ) {
+        if (value != 0 && showMessage){
+            document.getElementById("divCalldoctor").style.visibility = 'visible';
+        }
+        element.style.border = '2px solid';
         element.style.borderColor = 'red';
-        document.getElementById("divCalldoctor").style.visibility = 'hidden';
         return false;
-    }
-    else if (value < min || value > max ) {
-        element.style.border = '5px solid';
-        element.style.borderColor = 'red';
-        return 2;
     }
     element.style.border = '0.878274px solid';
     element.style.borderColor = '#D4D4D4';
