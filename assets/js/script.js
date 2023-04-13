@@ -68,10 +68,10 @@ function showResult(weightIndex, healthIndex) {
 
     const weightSpan = document.getElementById(`weightIndex`);
     weightSpan.innerText = Math.round(weightIndex * 10) / 10;
-
+    
     const healthSpan = document.getElementById(`healthIndex`);
     healthSpan.innerText = Math.round(healthIndex * 1000) / 1000;
-    
+
     if (weightIndex < 18.5) {
         wResult = "(Ниже нормального веса)";
     } 
@@ -89,9 +89,13 @@ function showResult(weightIndex, healthIndex) {
     }
       
     document.getElementById("weightTXT").innerText = wResult;
+    document.getElementById("weightTXT").style.color = '#333';
 
     if (weightIndex > 30) {
+        document.getElementById("weightTXT").style.color = 'red';
         document.getElementById("divCalldoctor").style.visibility = 'visible';
+        document.getElementById("healthTXT").innerText = '';
+        healthSpan.innerText = '';
         return false;
     }
 

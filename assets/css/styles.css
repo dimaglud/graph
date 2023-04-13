@@ -16,6 +16,7 @@ input[type=number] {
 
 .main-container {
     display: flex;
+    align-items: center;
 }
 
 @media (max-width: 900px) {
@@ -29,6 +30,12 @@ input[type=number] {
     font-style: normal;
     margin: 5% 0;
     padding-left: 10px;
+}
+
+@media (min-width: 900px) {
+    .form-container {
+        width: 35%;
+    }
 }
 
 .graph-container {
@@ -72,9 +79,7 @@ div.field .units {
 }
 
 div.field input {
-    width: 40%;
-    max-width: 210px;
-    min-width: 120px;
+    width: 50%;
     height: 45px;
 
     background: #FFFFFF;
